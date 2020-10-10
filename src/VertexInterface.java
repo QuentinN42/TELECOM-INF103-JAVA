@@ -1,2 +1,4 @@
-public interface VertexInterface {
+public interface VertexInterface
+{
+    boolean equals(Object element);
 }
