@@ -1,2 +1,5 @@
-public interface ASetInterface {
+public interface ASetInterface
+{
+    boolean contain(Object element);
+    void add(Object element);
 }
