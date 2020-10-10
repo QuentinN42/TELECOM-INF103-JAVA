@@ -1,6 +1,8 @@
 # Dijkstra algorithm
 
 ```
+r: starting point
+
 A <- {r}
 pivot <- r
 pi(r) <- 0
@@ -17,4 +19,9 @@ do n-1 times:
     z <- min(_ forall _ not in A)
     pivot <- z
     A <- A + z
+
+here:
+forall e in g:
+    pi(e) = distance from r to e
+    father(e) = step ? - 1 in the 
 ```
