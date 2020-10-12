@@ -1,5 +1,5 @@
 public interface PreviousInterface
 {
-    void setFatherOf(Object object, Object father);
-    int getFatherOf(Object object);
+    void setFatherOf(VertexInterface object, VertexInterface father);
+    VertexInterface getFatherOf(VertexInterface object);
 }
