@@ -21,7 +21,7 @@ public class Dijkstra
             VertexInterface m = null;
             for (VertexInterface s : g)
             {
-                if (!A.contain(s) && m == null || pi.getValueOf(m) > pi.getValueOf(s))
+                if (!A.contain(s) && (m == null || pi.getValueOf(m) > pi.getValueOf(s)))
                 {
                     m = s;
                 }
