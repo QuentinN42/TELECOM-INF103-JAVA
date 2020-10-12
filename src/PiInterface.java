@@ -1,5 +1,5 @@
 public interface PiInterface
 {
-    void setValueOf(Object object, int value);
-    int getValueOf(Object object);
+    void setValueOf(VertexInterface object, int value);
+    int getValueOf(VertexInterface object);
 }
