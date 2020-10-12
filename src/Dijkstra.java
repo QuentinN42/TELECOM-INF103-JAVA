@@ -29,9 +29,9 @@ public class Dijkstra
                     m = s;
                 }
             }
-
+            pivot = m;
+            A.add(m);
         }
-        
         return previous;
     }
 }
