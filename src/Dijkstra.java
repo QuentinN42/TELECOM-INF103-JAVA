@@ -20,9 +20,16 @@ public class Dijkstra
                     previous.setFatherOf(y, pivot);
                 }
             }
-            // TODO(Quentin Lieumont): continue
-            //  z <- min(_ forall _ not in A)
-            //  ...
+            // min
+            VertexInterface m = null;
+            for (VertexInterface s : g)
+            {
+                if (!A.contain(s) && m == null || pi.getValueOf(m) > pi.getValueOf(s))
+                {
+                    m = s;
+                }
+            }
+
         }
         
         return previous;
