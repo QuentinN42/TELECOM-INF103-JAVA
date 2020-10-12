@@ -7,4 +7,5 @@ public interface GraphInterface extends Iterable<VertexInterface>
     int weight(VertexInterface one, VertexInterface two);
     int size();
     Iterator<VertexInterface> iterator();
+    void fill(int value);
 }
