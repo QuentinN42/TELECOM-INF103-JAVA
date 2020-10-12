@@ -4,10 +4,7 @@ public class Dijkstra
     {
         A.add(r);
         VertexInterface pivot = r;
-        for (VertexInterface x : g)
-        {
-            pi.setValueOf(x, Integer.MAX_VALUE);
-        }
+        g.fill(Integer.MAX_VALUE);
         pi.setValueOf(r, 0);
 
         for (int i = 0; i < g.size() - 1; i++)
