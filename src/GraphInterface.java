@@ -1,6 +1,10 @@
-public interface GraphInterface
+import java.util.Iterator;
+
+public interface GraphInterface extends Iterable<VertexInterface>
 {
-    boolean contain(Object element);
-    boolean isSuccessor(Object father, Object child);
-    int weight(Object one, Object two);
+    boolean contain(VertexInterface element);
+    boolean isSuccessor(VertexInterface father, VertexInterface child);
+    int weight(VertexInterface one, VertexInterface two);
+    int size();
+    Iterator<VertexInterface> iterator();
 }
