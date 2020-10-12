@@ -16,7 +16,7 @@ do n-1 times:
             pi(y) <- pi(pivot) + w(pivot, y)
             father(y) <- pivot
 
-    z <- min(_ forall _ not in A)
+    z <- min(_ forall _ not in A, rule = pi)
     pivot <- z
     A <- A + z
 
