@@ -1,8 +1,10 @@
-package Interfaces.dijkstra;
+package implement.dijkstra;
 
-import Interfaces.graph.ASetInterface;
-import Interfaces.graph.GraphInterface;
-import Interfaces.graph.VertexInterface;
+import interfaces.dijkstra.PiInterface;
+import interfaces.dijkstra.PreviousInterface;
+import interfaces.graph.ASetInterface;
+import interfaces.graph.GraphInterface;
+import interfaces.graph.VertexInterface;
 
 public class Dijkstra
 {

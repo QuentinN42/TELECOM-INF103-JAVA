@@ -1,6 +1,6 @@
-package Interfaces.dijkstra;
+package interfaces.dijkstra;
 
-import Interfaces.graph.VertexInterface;
+import interfaces.graph.VertexInterface;
 
 public interface PiInterface
 {

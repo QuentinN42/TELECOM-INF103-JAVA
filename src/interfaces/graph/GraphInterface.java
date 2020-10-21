@@ -1,4 +1,4 @@
-package Interfaces.graph;
+package interfaces.graph;
 
 import java.util.Iterator;
 
