@@ -1,8 +1,8 @@
-package dijkstra;
+package Interfaces.dijkstra;
 
-import graph.ASetInterface;
-import graph.GraphInterface;
-import graph.VertexInterface;
+import Interfaces.graph.ASetInterface;
+import Interfaces.graph.GraphInterface;
+import Interfaces.graph.VertexInterface;
 
 public class Dijkstra
 {

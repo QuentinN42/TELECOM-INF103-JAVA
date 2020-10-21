@@ -1,6 +1,6 @@
-package dijkstra;
+package Interfaces.dijkstra;
 
-import graph.VertexInterface;
+import Interfaces.graph.VertexInterface;
 
 public interface PreviousInterface
 {

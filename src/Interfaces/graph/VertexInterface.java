@@ -1,4 +1,4 @@
-package graph;
+package Interfaces.graph;
 
 public interface VertexInterface
 {
