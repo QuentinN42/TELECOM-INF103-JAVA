@@ -1,5 +1,7 @@
 package implement.graph;
 
-public class Vertex
+import interfaces.graph.VertexInterface;
+
+public class Vertex implements VertexInterface
 {
 }
