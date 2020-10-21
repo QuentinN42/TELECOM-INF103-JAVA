@@ -18,13 +18,6 @@ public class Pi implements PiInterface
     @Override
     public int getValueOf(VertexInterface object)
     {
-        if (this.vertexes.containsKey(object))
-        {
-            return vertexes.get(object);
-        }
-        else
-        {
-            return Integer.MAX_VALUE;
-        }
+        return vertexes.getOrDefault(object, Integer.MAX_VALUE);
     }
 }
