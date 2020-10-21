@@ -53,10 +53,4 @@ public class Graph implements GraphInterface
     {
         return this.vertexes.iterator();
     }
-
-    @Override
-    public void fill(int value)
-    {
-
-    }
 }
