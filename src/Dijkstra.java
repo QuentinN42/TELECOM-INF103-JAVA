@@ -1,8 +1,8 @@
 public class Dijkstra
 {
-    private PreviousInterface dijkstra(GraphInterface g, VertexInterface r, ASetInterface A, PiInterface pi, PreviousInterface previous)
+    private PreviousInterface dijkstra(GraphInterface g, VertexInterface r, ASetInterface a, PiInterface pi, PreviousInterface previous)
     {
-        A.add(r);
+        a.add(r);
         VertexInterface pivot = r;
         g.fill(Integer.MAX_VALUE);
         pi.setValueOf(r, 0);
@@ -11,7 +11,7 @@ public class Dijkstra
         {
             for (VertexInterface y : g)
             {
-                if (!A.contains(y) && g.isSuccessor(pivot, y) && pi.getValueOf(pivot) + g.weight(pivot, y) < pi.getValueOf(y))
+                if (!a.contains(y) && g.isSuccessor(pivot, y) && pi.getValueOf(pivot) + g.weight(pivot, y) < pi.getValueOf(y))
                 {
                     pi.setValueOf(y, pi.getValueOf(pivot) + g.weight(pivot, y));
                     previous.setFatherOf(y, pivot);
@@ -21,13 +21,13 @@ public class Dijkstra
             VertexInterface m = null;
             for (VertexInterface s : g)
             {
-                if (!A.contains(s) && (m == null || pi.getValueOf(m) > pi.getValueOf(s)))
+                if (!a.contains(s) && (m == null || pi.getValueOf(m) > pi.getValueOf(s)))
                 {
                     m = s;
                 }
             }
             pivot = m;
-            A.add(m);
+            a.add(m);
         }
         return previous;
     }
