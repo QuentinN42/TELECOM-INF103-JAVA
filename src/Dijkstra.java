@@ -11,7 +11,7 @@ public class Dijkstra
         {
             for (VertexInterface y : g)
             {
-                if (!A.contain(y) && g.isSuccessor(pivot, y) && pi.getValueOf(pivot) + g.weight(pivot, y) < pi.getValueOf(y))
+                if (!A.contains(y) && g.isSuccessor(pivot, y) && pi.getValueOf(pivot) + g.weight(pivot, y) < pi.getValueOf(y))
                 {
                     pi.setValueOf(y, pi.getValueOf(pivot) + g.weight(pivot, y));
                     previous.setFatherOf(y, pivot);
@@ -21,7 +21,7 @@ public class Dijkstra
             VertexInterface m = null;
             for (VertexInterface s : g)
             {
-                if (!A.contain(s) && (m == null || pi.getValueOf(m) > pi.getValueOf(s)))
+                if (!A.contains(s) && (m == null || pi.getValueOf(m) > pi.getValueOf(s)))
                 {
                     m = s;
                 }
