@@ -1,3 +1,9 @@
+package dijkstra;
+
+import graph.ASetInterface;
+import graph.GraphInterface;
+import graph.VertexInterface;
+
 public class Dijkstra
 {
     private PreviousInterface dijkstra(GraphInterface g, VertexInterface r, ASetInterface a, PiInterface pi, PreviousInterface previous)

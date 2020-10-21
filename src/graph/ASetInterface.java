@@ -1,3 +1,5 @@
+package graph;
+
 import java.util.Iterator;
 
 public interface ASetInterface extends Iterable<VertexInterface>
