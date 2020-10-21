@@ -2,6 +2,8 @@ package implement.graph;
 
 import interfaces.graph.VertexInterface;
 
+import java.util.Objects;
+
 public class Vertex implements VertexInterface
 {
     private final int id;
@@ -23,4 +25,10 @@ public class Vertex implements VertexInterface
             return false;
         }
     }
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id);
+    }
+
 }
