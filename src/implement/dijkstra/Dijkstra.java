@@ -1,13 +1,36 @@
 package implement.dijkstra;
 
+import implement.graph.ASet;
+import implement.graph.Graph;
+import implement.graph.Vertex;
 import interfaces.dijkstra.PiInterface;
 import interfaces.dijkstra.PreviousInterface;
 import interfaces.graph.ASetInterface;
 import interfaces.graph.GraphInterface;
 import interfaces.graph.VertexInterface;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Dijkstra
 {
+    public List<Vertex> shortedPath(Graph g, Vertex from, Vertex to)
+    {
+        Previous pi = (Previous) this.dijkstra(g, from, new ASet(), new Pi(), new Previous());
+
+        ArrayList<Vertex> path = new ArrayList<>();
+
+        while (!pi.getFatherOf(from).equals(to))
+        {
+            path.add(from);
+            from = (Vertex) pi.getFatherOf(from);
+        }
+        path.add(to);
+        Collections.reverse(path);
+        return path;
+    }
+
     private PreviousInterface dijkstra(GraphInterface g, VertexInterface r, ASetInterface a, PiInterface pi, PreviousInterface previous)
     {
         a.add(r);
