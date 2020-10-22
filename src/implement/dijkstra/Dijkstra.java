@@ -15,6 +15,12 @@ import java.util.List;
 
 public class Dijkstra
 {
+    /**
+     * @param g any graph
+     * @param from the starting node on the graph
+     * @param to the node you want to go to
+     * @return your path : a list of nodes
+     */
     public List<Vertex> shortedPath(Graph g, Vertex from, Vertex to)
     {
         Previous pi = (Previous) this.dijkstra(g, from, new ASet(), new Pi(), new Previous());
@@ -31,6 +37,14 @@ public class Dijkstra
         return path;
     }
 
+    /**
+     * @param g any graph
+     * @param r starting node
+     * @param a an empty set
+     * @param pi an empty pi
+     * @param previous an empty previous
+     * @return a filled previous
+     */
     private PreviousInterface dijkstra(GraphInterface g, VertexInterface r, ASetInterface a, PiInterface pi, PreviousInterface previous)
     {
         a.add(r);
