@@ -5,15 +5,19 @@ import interfaces.graph.VertexInterface;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
+/**
+ * GraphInterface implementation using weighs 2D array and vertex ArrayList
+ */
 public class Graph implements GraphInterface
 {
-    private ArrayList<VertexInterface> vertexes = new ArrayList<>();
-    private int[][] weights;
+    private final ArrayList<VertexInterface> vertexes;
+    private final int[][] weights;
 
-    public Graph(ArrayList<VertexInterface> vertexes, int[][] weights)
+    public Graph(List<VertexInterface> vertexes, int[][] weights)
     {
-        this.vertexes = vertexes;
+        this.vertexes = (ArrayList<VertexInterface>) vertexes;
         this.weights = weights;
     }
 
