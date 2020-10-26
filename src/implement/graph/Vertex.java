@@ -17,6 +17,11 @@ public class Vertex implements VertexInterface
     }
 
     /**
+     * @return the vertex id
+     */
+    int getId() { return this.id; }
+
+    /**
      * @param element the element to test
      * @return if this == element
      */
