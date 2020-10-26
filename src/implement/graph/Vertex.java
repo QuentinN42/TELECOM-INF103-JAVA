@@ -4,6 +4,9 @@ import interfaces.graph.VertexInterface;
 
 import java.util.Objects;
 
+/**
+ * Implement VertexInterface
+ */
 public class Vertex implements VertexInterface
 {
     private final int id;
@@ -13,6 +16,10 @@ public class Vertex implements VertexInterface
         this.id = id;
     }
 
+    /**
+     * @param element the element to test
+     * @return if this == element
+     */
     @Override
     public boolean equals(Object element)
     {
@@ -25,6 +32,10 @@ public class Vertex implements VertexInterface
             return false;
         }
     }
+
+    /**
+     * @return a hash value of this
+     */
     @Override
     public int hashCode()
     {
