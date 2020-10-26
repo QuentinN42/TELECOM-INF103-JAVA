@@ -21,6 +21,11 @@ public class Vertex implements VertexInterface
      */
     public int getId() { return this.id; }
 
+    public String toString()
+    {
+        return "Vertex(" + this.getId() + ")";
+    }
+
     /**
      * @param element the element to test
      * @return if this == element
