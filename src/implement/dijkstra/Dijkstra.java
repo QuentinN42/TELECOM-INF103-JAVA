@@ -27,12 +27,12 @@ public class Dijkstra
 
         ArrayList<Vertex> path = new ArrayList<>();
 
-        while (!pi.getFatherOf(from).equals(to))
+        while (!pi.getFatherOf(to).equals(from))
         {
-            path.add(from);
-            from = (Vertex) pi.getFatherOf(from);
+            path.add(to);
+            to = (Vertex) pi.getFatherOf(to);
         }
-        path.add(to);
+        path.add(from);
         Collections.reverse(path);
         return path;
     }
