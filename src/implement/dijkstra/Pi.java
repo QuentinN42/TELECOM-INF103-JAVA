@@ -5,6 +5,10 @@ import interfaces.graph.VertexInterface;
 
 import java.util.HashMap;
 
+
+/**
+ * Implement PiInterface using HashMap
+ */
 public class Pi implements PiInterface
 {
     private final HashMap<VertexInterface, Integer> vertexes = new HashMap<>();
