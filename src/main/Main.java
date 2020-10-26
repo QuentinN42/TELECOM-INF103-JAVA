@@ -38,6 +38,8 @@ public class Main
         // use Dijkstra
 
         ArrayList<Vertex> path = (ArrayList<Vertex>) (new Dijkstra()).shortedPath(g, a, c);
+        // TODO(Quentin Lieumont): set logger
+        //  java:S106
         System.out.println(path.size());
         for(Vertex e : path)
         {
