@@ -1,3 +1,7 @@
 .idea/
 out/
 *.jar
+target/
+src/maven-archiver/
+src/maven-status/
+src/test-classes/
