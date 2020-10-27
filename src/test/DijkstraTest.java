@@ -1,0 +1,74 @@
+package test;
+
+import implement.dijkstra.Dijkstra;
+import implement.graph.Graph;
+import implement.graph.Vertex;
+import interfaces.graph.VertexInterface;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class DijkstraTest
+{
+    Graph g;
+    Vertex a;
+    Vertex b;
+    Vertex c;
+
+    int ab;
+    int ac;
+    int bc;
+
+    @BeforeEach
+    void setUp()
+    {
+        // init vertexes
+        a = new Vertex(1);
+        b = new Vertex(2);
+        c = new Vertex(3);
+
+        // define graph
+        ArrayList<VertexInterface> lst = new ArrayList<>();
+        lst.add(a);
+        lst.add(b);
+        lst.add(c);
+
+        ab = 1;
+        ac = 4;
+        bc = 2;
+
+        // symmetric graph
+        int[][] weight = {
+                {0, ab, ac},
+                {ab, 0, bc},
+                {ac, bc, 0}
+        };
+
+        g = new Graph(lst, weight);
+    }
+
+    @Test
+    void shortedPath()
+    {
+        ArrayList<Vertex> expected1 = new ArrayList<>(Arrays.asList(a, b, c));
+        ArrayList<Vertex> path1 = (ArrayList<Vertex>) (new Dijkstra()).shortedPath(g, a, c);
+
+        assertEquals(expected1, path1);
+
+
+        ArrayList<Vertex> expected2 = new ArrayList<>(Arrays.asList(a, b));
+        ArrayList<Vertex> path2 = (ArrayList<Vertex>) (new Dijkstra()).shortedPath(g, a, b);
+
+        assertEquals(expected2, path2);
+
+
+        ArrayList<Vertex> expected3 = new ArrayList<>(Arrays.asList(b, c));
+        ArrayList<Vertex> path3 = (ArrayList<Vertex>) (new Dijkstra()).shortedPath(g, b, c);
+
+        assertEquals(expected3, path3);
+    }
+}
