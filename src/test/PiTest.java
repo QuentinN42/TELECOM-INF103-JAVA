@@ -42,5 +42,11 @@ class PiTest
         assertEquals(10, pi.getValueOf(v1));        // because as been set at 10
         assertEquals(Integer.MAX_VALUE, pi.getValueOf(v2)); // because as been set at +inf
         assertEquals(Integer.MAX_VALUE, pi.getValueOf(v3)); // because as not been set
+
+        // change value
+        pi.setValueOf(v1, 20);
+
+        // retest
+        assertEquals(20, pi.getValueOf(v1));
     }
 }
