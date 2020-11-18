@@ -1,9 +1,10 @@
 package implement.maze;
 
-public class Box implements interfaces.maze.Box
+public abstract class Box implements interfaces.maze.Box
 {
     private final int x;
     private final int y;
+    private String label;
 
     /**
      * @param x The x coordinate.
@@ -15,6 +16,15 @@ public class Box implements interfaces.maze.Box
         this.y = y;
     }
 
+    protected void setLabel(String label)
+    {
+        this.label = label;
+    }
+
+    public String getLabel()
+    {
+        return label;
+    }
 
     /**
      * @return The x coordinate.
