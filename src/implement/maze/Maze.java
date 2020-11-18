@@ -41,7 +41,7 @@ public class Maze extends Graph
                     for (int l = 0; l < width; l++)
                     {
                         int pos2 = k * height + l;
-                        if(switch (boxes[k][l])
+                        weights[pos1][pos2] = switch (boxes[k][l])
                                 {
                                     case "A" -> true;
                                     case "W" -> false;
@@ -49,14 +49,7 @@ public class Maze extends Graph
                                     case "E" -> true;
                                     default -> throw new Exception("String : '" +
                                             boxes[k][l] + "' doesn't match A W D or E.");
-                                })
-                        {
-                            weights[pos1][pos2] = 1;
-                        }
-                        else
-                        {
-                            weights[pos1][pos2] = Integer.MAX_VALUE;
-                        }
+                                }? 1 : Integer.MAX_VALUE;
                     }
                 }
             }
