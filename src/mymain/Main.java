@@ -1,4 +1,4 @@
-package main;
+package mymain;
 
 import implement.dijkstra.Dijkstra;
 import implement.graph.Graph;
