@@ -40,7 +40,7 @@ public class Graph implements GraphInterface
     /**
      * @param father first
      * @param child second
-     * @return if first -> second is a valid edge
+     * @return if first to second is a valid edge
      */
     @Override
     public boolean isSuccessor(VertexInterface father, VertexInterface child)
@@ -51,7 +51,7 @@ public class Graph implements GraphInterface
     /**
      * @param one first
      * @param two second
-     * @return the value of first -> second if both are in the graph else +inf
+     * @return the value of first to second if both are in the graph else +inf
      */
     @Override
     public int weight(VertexInterface one, VertexInterface two)
