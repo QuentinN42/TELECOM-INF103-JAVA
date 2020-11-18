@@ -1,6 +1,10 @@
 package implement.maze;
 
-public abstract class Box implements interfaces.maze.Box
+import interfaces.graph.VertexInterface;
+
+import java.util.Objects;
+
+public abstract class Box implements interfaces.maze.Box, VertexInterface
 {
     private final int x;
     private final int y;
@@ -24,6 +28,23 @@ public abstract class Box implements interfaces.maze.Box
     public String getLabel()
     {
         return label;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Box box = (Box) o;
+        return x == box.x && y == box.y && Objects.equals(label, box.label);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(x, y, label);
     }
 
     /**
