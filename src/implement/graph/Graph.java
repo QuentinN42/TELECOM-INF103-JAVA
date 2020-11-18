@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class Graph implements GraphInterface
 {
-    private final ArrayList<VertexInterface> vertexes;
-    private final int[][] weights;
+    protected ArrayList<VertexInterface> vertexes;
+    protected int[][] weights;
 
     /**
      * @param vertexes List of all vertexes
@@ -25,6 +25,10 @@ public class Graph implements GraphInterface
         //  Verify list size == w len == w height
         this.vertexes = (ArrayList<VertexInterface>) vertexes;
         this.weights = weights;
+    }
+
+    public Graph()
+    {
     }
 
     /**
