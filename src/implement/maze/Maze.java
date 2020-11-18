@@ -9,7 +9,8 @@ public class Maze extends Graph
 {
 
     /**
-     * Generate a graph from a given
+     * Generate a graph from a given 2D array of string.
+     * Generate all boxes and after check if this box is connected to it.
      * @param boxes all boxes in a 2D array.
      */
     public Maze(String[][] boxes) throws Exception
