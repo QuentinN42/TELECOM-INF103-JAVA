@@ -1,5 +1,6 @@
 package implement.maze;
 
+import error.MazeError;
 import implement.graph.Graph;
 import interfaces.graph.VertexInterface;
 
@@ -7,15 +8,32 @@ import java.util.*;
 
 public class Maze extends Graph
 {
+    /**
+     * Init empty maze
+     */
+    public Maze()
+    {
+        super();
+    }
+
+    /**
+     * @param vertexes List of all vertexes
+     * @param weights incidence matrix
+     */
+    public Maze(List<VertexInterface> vertexes, int[][] weights)
+    {
+        super.vertexes = (ArrayList<VertexInterface>) vertexes;
+        super.weights = weights;
+    }
 
     /**
      * Generate a graph from a given 2D array of string.
      * Generate all boxes and after check if this box is connected to it.
      * @param boxes all boxes in a 2D array.
      */
-    public Maze(String[][] boxes) throws Exception
+    public Maze(String[][] boxes) throws MazeError
     {
-        super();
+        this();
         int height = boxes.length;
         int width = boxes[0].length;
         int size = height * width;
@@ -33,7 +51,7 @@ public class Maze extends Graph
                                     case "W" -> new WBox(i, j);
                                     case "D" -> new DBox(i, j);
                                     case "E" -> new EBox(i, j);
-                                    default -> throw new Exception("String : '" +
+                                    default -> throw new MazeError("String : '" +
                                             boxes[i][j] + "' doesn't match A W D or E.");
                                 });
                 for (int k = 0; k < height; k++)
@@ -47,7 +65,7 @@ public class Maze extends Graph
                                     case "W" -> false;
                                     case "D" -> true;
                                     case "E" -> true;
-                                    default -> throw new Exception("String : '" +
+                                    default -> throw new MazeError("String : '" +
                                             boxes[k][l] + "' doesn't match A W D or E.");
                                 }? 1 : Integer.MAX_VALUE;
                     }
@@ -56,5 +74,10 @@ public class Maze extends Graph
         }
         super.vertexes = vertexes;
         super.weights = weights;
+    }
+
+    public Maze(String filename) throws MazeError
+    {
+        this(IO.File.readChars(filename));
     }
 }
