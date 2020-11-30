@@ -7,6 +7,10 @@ import java.nio.charset.StandardCharsets;
 
 public class File
 {
+    /**
+     * @param filename the file path
+     * @return content of the file
+     */
     public static String read(String filename)
     {
         InputStream file = null;
@@ -31,11 +35,19 @@ public class File
         return "ERROR";
     }
 
+    /**
+     * @param filename the file path
+     * @return content of the file : each line as an element of the array
+     */
     public static String[] readLines(String filename)
     {
         return read(filename).split("\n");
     }
 
+    /**
+     * @param filename the file path
+     * @return content of the file : each char as an element of the array
+     */
     public static String[][] readChars(String filename)
     {
         String[] txts = readLines(filename);
