@@ -1,5 +1,7 @@
 package IO;
 
+import error.MazeError;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,7 +13,7 @@ public class File
      * @param filename the file path
      * @return content of the file
      */
-    public static String read(String filename)
+    public static String read(String filename) throws MazeError
     {
         InputStream file = null;
         try
@@ -32,14 +34,14 @@ public class File
                 e.printStackTrace();
             }
         }
-        return "ERROR";
+        throw new MazeError("Can't open " + filename);
     }
 
     /**
      * @param filename the file path
      * @return content of the file : each line as an element of the array
      */
-    public static String[] readLines(String filename)
+    public static String[] readLines(String filename) throws MazeError
     {
         return read(filename).split("\n");
     }
@@ -48,7 +50,7 @@ public class File
      * @param filename the file path
      * @return content of the file : each char as an element of the array
      */
-    public static String[][] readChars(String filename)
+    public static String[][] readChars(String filename) throws MazeError
     {
         String[] txts = readLines(filename);
         int ma = -1;
