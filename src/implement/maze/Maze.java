@@ -30,15 +30,20 @@ public class Maze extends Graph
      * Generate a graph from a given 2D array of string.
      * Generate all boxes and after check if this box is connected to it.
      * @param boxes all boxes in a 2D array.
+     * @throws MazeError if error in file
      */
     public Maze(String[][] boxes) throws MazeError
     {
         this();
+
         int height = boxes.length;
         int width = boxes[0].length;
+        // TODO: test if square box.
+
         int size = height * width;
         var vertexes = new ArrayList<VertexInterface>();
         int[][] weights = new int[size][size];
+
         for (int i = 0; i < height; i++)
         {
             for (int j = 0; j < width; j++)
@@ -76,6 +81,10 @@ public class Maze extends Graph
         super.weights = weights;
     }
 
+    /**
+     * @param filename path to maze
+     * @throws MazeError if error in file
+     */
     public Maze(String filename) throws MazeError
     {
         this(IO.File.readChars(filename));
