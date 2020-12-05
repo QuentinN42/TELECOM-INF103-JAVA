@@ -1,5 +1,6 @@
 package implement.maze;
 
+import IO.File;
 import error.MazeError;
 import interfaces.graph.GraphInterface;
 import interfaces.graph.VertexInterface;
@@ -28,6 +29,10 @@ public class Maze implements GraphInterface
     }
 
 
+    /**
+     * @param fileName the maze file path.
+     * @throws MazeError if can't init maze.
+     */
     public final void initFromTextFile(String fileName) throws MazeError
     {
         String[][] data = IO.File.readChars(fileName);
@@ -42,6 +47,25 @@ public class Maze implements GraphInterface
                 boxes.put(new int[]{i, j}, Box.newBox(i, j, data[i][j]));
             }
         }
+    }
+
+    /**
+     * @param fileName the maze file path.
+     * @throws MazeError if can't init maze.
+     */
+    public final void saveToTextFile(String fileName) throws MazeError
+    {
+        String[][] data = new String[this.height][this.width];
+        for (int i = 0; i < this.height; i++)
+        {
+            for (int j = 0; j < this.width; j++)
+            {
+                int[] pos = new int[]{i, j};
+                Box box = (Box) boxes.get(pos);
+                data[i][j] = box.getLabel();
+            }
+        }
+        File.writeChars(fileName, data);
     }
 
     /**
