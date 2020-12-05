@@ -71,4 +71,26 @@ public class File
 
         return out;
     }
+
+    public static void write(String fileName, String data) throws MazeError
+    {
+        // TODO
+        // open file
+        // write data
+        // close file
+    }
+
+    public static void writeLines(String fileName, String[] data) throws MazeError
+    {
+        // TODO
+        // join "\n" each line
+        // call write
+    }
+
+    public static void writeChars(String fileName, String[][] data) throws MazeError
+    {
+        // TODO
+        // join "" in each line
+        // call writeLines
+    }
 }
