@@ -1,14 +1,19 @@
 package implement.maze;
 
+import error.MazeError;
 import interfaces.graph.VertexInterface;
+import interfaces.maze.BoxInterface;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
-public abstract class Box implements interfaces.maze.Box, VertexInterface
+public abstract class Box implements BoxInterface, VertexInterface
 {
     private final int x;
     private final int y;
     private String label;
+    private final ArrayList<String> solidBoxes = (ArrayList<String>) Arrays.asList("W");
 
     /**
      * @param x The x coordinate.
@@ -18,6 +23,37 @@ public abstract class Box implements interfaces.maze.Box, VertexInterface
     {
         this.x = x;
         this.y = y;
+    }
+
+    public static Box newBox(int i, int j, String type) throws MazeError
+    {
+        return switch (type)
+                {
+                    case "A" -> new ABox(i, j);
+                    case "D" -> new DBox(i, j);
+                    case "E" -> new EBox(i, j);
+                    case "W" -> new WBox(i, j);
+                    default -> throw new MazeError("Type " + type + " not recognized.");
+                };
+    }
+
+    /**
+     * @param x x pos.
+     * @param y x pos.
+     * @return the distance from this box to (x, y)
+     */
+    public double distanceTo(int x, int y)
+    {
+        return Math.sqrt((x - this.getX())^2 + (y - this.getY())^2);
+    }
+
+    /**
+     * @param box another box
+     * @return the distance from this box to box
+     */
+    public double distanceTo(Box box)
+    {
+        return this.distanceTo(box.getX(), box.getY());
     }
 
     protected void setLabel(String label)
@@ -72,5 +108,10 @@ public abstract class Box implements interfaces.maze.Box, VertexInterface
     public int[] getCoords()
     {
         return new int[]{this.getX(), this.getY()};
+    }
+
+    public boolean isSolid()
+    {
+        return this.solidBoxes.contains(this.getLabel());
     }
 }

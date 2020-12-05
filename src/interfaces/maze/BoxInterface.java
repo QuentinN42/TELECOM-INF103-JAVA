@@ -1,6 +1,6 @@
 package interfaces.maze;
 
-public interface Box
+public interface BoxInterface
 {
     /**
      * @return the x coordinate.
