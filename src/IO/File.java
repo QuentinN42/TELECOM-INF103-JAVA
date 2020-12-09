@@ -2,9 +2,7 @@ package IO;
 
 import error.MazeError;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class File
@@ -23,6 +21,7 @@ public class File
         } catch (IOException error)
         {
             error.printStackTrace();
+            throw new MazeError("Can't open " + fileName);
         } finally
         {
             try
@@ -34,7 +33,6 @@ public class File
                 e.printStackTrace();
             }
         }
-        throw new MazeError("Can't open " + fileName);
     }
 
     /**
@@ -78,10 +76,26 @@ public class File
      */
     public static void write(String fileName, String data) throws MazeError
     {
-        // TODO
-        // open file
-        // write data
-        // close file
+        OutputStream file = null;
+        try
+        {
+            file = new FileOutputStream(fileName);
+            file.write(data.getBytes());
+        } catch (IOException error)
+        {
+            error.printStackTrace();
+            throw new MazeError("Can't open " + fileName);
+        } finally
+        {
+            try
+            {
+                assert file != null;
+                file.close();
+            } catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
