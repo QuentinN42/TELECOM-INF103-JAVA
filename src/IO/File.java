@@ -10,15 +10,15 @@ import java.nio.charset.StandardCharsets;
 public class File
 {
     /**
-     * @param filename the file path
+     * @param fileName the file path
      * @return content of the file
      */
-    public static String read(String filename) throws MazeError
+    public static String read(String fileName) throws MazeError
     {
         InputStream file = null;
         try
         {
-            file = new FileInputStream(filename);
+            file = new FileInputStream(fileName);
             return new String(file.readAllBytes(), StandardCharsets.UTF_8);
         } catch (IOException error)
         {
@@ -34,25 +34,25 @@ public class File
                 e.printStackTrace();
             }
         }
-        throw new MazeError("Can't open " + filename);
+        throw new MazeError("Can't open " + fileName);
     }
 
     /**
-     * @param filename the file path
+     * @param fileName the file path
      * @return content of the file : each line as an element of the array
      */
-    public static String[] readLines(String filename) throws MazeError
+    public static String[] readLines(String fileName) throws MazeError
     {
-        return read(filename).split("\n");
+        return read(fileName).split("\n");
     }
 
     /**
-     * @param filename the file path
+     * @param fileName the file path
      * @return content of the file : each char as an element of the array
      */
-    public static String[][] readChars(String filename) throws MazeError
+    public static String[][] readChars(String fileName) throws MazeError
     {
-        String[] txts = readLines(filename);
+        String[] txts = readLines(fileName);
         int ma = -1;
         for(String txt: txts)
         {
@@ -72,6 +72,10 @@ public class File
         return out;
     }
 
+    /**
+     * @param fileName the file path
+     * @param data content of the file
+     */
     public static void write(String fileName, String data) throws MazeError
     {
         // TODO
@@ -80,6 +84,10 @@ public class File
         // close file
     }
 
+    /**
+     * @param fileName the file path
+     * @param data content of the file : each line as an element of the array
+     */
     public static void writeLines(String fileName, String[] data) throws MazeError
     {
         // TODO
@@ -87,6 +95,10 @@ public class File
         // call write
     }
 
+    /**
+     * @param fileName the file path
+     * @param data content of the file : each char as an element of the array
+     */
     public static void writeChars(String fileName, String[][] data) throws MazeError
     {
         // TODO
