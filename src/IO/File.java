@@ -90,9 +90,7 @@ public class File
      */
     public static void writeLines(String fileName, String[] data) throws MazeError
     {
-        // TODO
-        // join "\n" each line
-        // call write
+        File.write(fileName, String.join("\n", data));
     }
 
     /**
