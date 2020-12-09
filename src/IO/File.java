@@ -101,8 +101,11 @@ public class File
      */
     public static void writeChars(String fileName, String[][] data) throws MazeError
     {
-        // TODO
-        // join "" in each line
-        // call writeLines
+        String[] lines = new String[data.length];
+        for (int i = 0; i < data.length; i++)
+        {
+            lines[i] = String.join("", data[i]);
+        }
+        File.writeLines(fileName, lines);
     }
 }
