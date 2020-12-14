@@ -55,19 +55,19 @@ class DijkstraTest
     void shortedPath()
     {
         ArrayList<Vertex> expected1 = new ArrayList<>(Arrays.asList(a, b, c));
-        ArrayList<Vertex> path1 = (ArrayList<Vertex>) (new Dijkstra()).shortedPath(g, a, c);
+        ArrayList<VertexInterface> path1 = (ArrayList<VertexInterface>) (new Dijkstra()).shortedPath(g, a, c);
 
         assertEquals(expected1, path1);
 
 
         ArrayList<Vertex> expected2 = new ArrayList<>(Arrays.asList(a, b));
-        ArrayList<Vertex> path2 = (ArrayList<Vertex>) (new Dijkstra()).shortedPath(g, a, b);
+        ArrayList<VertexInterface> path2 = (ArrayList<VertexInterface>) (new Dijkstra()).shortedPath(g, a, b);
 
         assertEquals(expected2, path2);
 
 
         ArrayList<Vertex> expected3 = new ArrayList<>(Arrays.asList(b, c));
-        ArrayList<Vertex> path3 = (ArrayList<Vertex>) (new Dijkstra()).shortedPath(g, b, c);
+        ArrayList<VertexInterface> path3 = (ArrayList<VertexInterface>) (new Dijkstra()).shortedPath(g, b, c);
 
         assertEquals(expected3, path3);
     }

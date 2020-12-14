@@ -21,16 +21,16 @@ public class Dijkstra
      * @param to the node you want to go to
      * @return your path : a list of nodes
      */
-    public List<Vertex> shortedPath(Graph g, Vertex from, Vertex to)
+    public List<VertexInterface> shortedPath(GraphInterface g, VertexInterface from, VertexInterface to)
     {
-        Previous pi = (Previous) this.dijkstra(g, from, new ASet(), new Pi(), new Previous());
+        PreviousInterface pi = this.dijkstra(g, from, new ASet(), new Pi(), new Previous());
 
-        ArrayList<Vertex> path = new ArrayList<>();
+        ArrayList<VertexInterface> path = new ArrayList<>();
 
         while (!to.equals(from))
         {
             path.add(to);
-            to = (Vertex) pi.getFatherOf(to);
+            to = pi.getFatherOf(to);
         }
         path.add(to);
         Collections.reverse(path);
