@@ -118,6 +118,6 @@ public abstract class Box implements BoxInterface, VertexInterface
     @Override
     public String toString()
     {
-        return "Box{x=" + x + ", y=" + y + '}';
+        return label + "Box{x=" + x + ", y=" + y + '}';
     }
 }
