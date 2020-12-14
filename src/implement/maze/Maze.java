@@ -2,18 +2,22 @@ package implement.maze;
 
 import IO.File;
 import error.MazeError;
+import implement.dijkstra.Dijkstra;
 import interfaces.graph.GraphInterface;
 import interfaces.graph.VertexInterface;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * GraphInterface implementation from text file with a maze.
  */
 public class Maze implements GraphInterface
 {
-    private final HashMap<int[], VertexInterface> boxes;
+    private final HashMap<int[], Box> boxes;
     private int height;
     private int width;
 
@@ -61,7 +65,7 @@ public class Maze implements GraphInterface
             for (int j = 0; j < this.width; j++)
             {
                 int[] pos = new int[]{i, j};
-                Box box = (Box) boxes.get(pos);
+                Box box = boxes.get(pos);
                 data[i][j] = box.getLabel();
             }
         }
@@ -75,7 +79,7 @@ public class Maze implements GraphInterface
     @Override
     public boolean contains(VertexInterface element)
     {
-        return boxes.containsValue(element);
+        return element instanceof Box && boxes.containsValue(element);
     }
 
     /**
@@ -122,8 +126,62 @@ public class Maze implements GraphInterface
      * @return Iterator
      */
     @Override
-    public Iterator<VertexInterface> iterator()
+    public @NotNull Iterator<VertexInterface> iterator()
     {
-        return this.boxes.values().iterator();
+        return this.boxes.values().stream().map((Box box) -> (VertexInterface) box).iterator();
+    }
+
+    /**
+     * @param pos pos in the maze.
+     * @return Box at this pos.
+     */
+    public final Box get(int[] pos)
+    {
+        return this.boxes.get(pos);
+    }
+
+    /**
+     * @param xPos pos in the x axis.
+     * @param yPos pos in the y axis.
+     * @return Box at this pos.
+     */
+    public final Box get(int xPos, int yPos)
+    {
+        // Warning inverting x and y : x for <-> and y for v^
+        return this.get(new int[]{yPos, xPos});
+    }
+
+    /**
+     * @param label label of a box in the maze.
+     * @return first Box with this label.
+     */
+    public final Box getByLabel(String label)
+    {
+        for (Box box: this.boxes.values())
+        {
+            if(label.equals(box.getLabel()))
+                return box;
+        }
+        return null;
+    }
+
+    public List<Box> path(Box from, Box to)
+    {
+        return (new Dijkstra()).shortedPath(this, from, to).stream().map((VertexInterface vi) -> (Box) vi).collect(Collectors.toList());
+    }
+
+    public List<Box> path(String fromLabel, Box to)
+    {
+        return this.path(this.getByLabel(fromLabel), to);
+    }
+
+    public List<Box> path(Box from, String toLabel)
+    {
+        return this.path(from, this.getByLabel(toLabel));
+    }
+
+    public List<Box> path(String fromLabel, String toLabel)
+    {
+        return this.path(this.getByLabel(fromLabel), this.getByLabel(toLabel));
     }
 }
