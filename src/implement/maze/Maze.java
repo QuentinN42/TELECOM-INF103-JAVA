@@ -47,7 +47,7 @@ public class Maze implements GraphInterface
                 throw new MazeError("Invalid lines length in '" + fileName + "' !");
             for (int j = 0; j < this.width; j++)
             {
-                boxes.put(new int[]{i, j}, Box.newBox(i, j, data[i][j]));
+                boxes.put(new int[]{j, i}, Box.newBox(j, i, data[i][j]));
             }
         }
     }
@@ -63,7 +63,7 @@ public class Maze implements GraphInterface
         {
             for (int j = 0; j < this.width; j++)
             {
-                int[] pos = new int[]{i, j};
+                int[] pos = new int[]{j, i};
                 Box box = boxes.get(pos);
                 data[i][j] = box.getLabel();
             }

@@ -5,7 +5,7 @@ import interfaces.graph.VertexInterface;
 import interfaces.maze.BoxInterface;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Objects;
 
 public abstract class Box implements BoxInterface, VertexInterface
@@ -13,7 +13,7 @@ public abstract class Box implements BoxInterface, VertexInterface
     private final int x;
     private final int y;
     private String label;
-    private final ArrayList<String> solidBoxes = (ArrayList<String>) Arrays.asList("W");
+    private final ArrayList<String> solidBoxes = new ArrayList<>(Collections.singletonList("W"));
 
     /**
      * @param x The x coordinate.
@@ -113,5 +113,11 @@ public abstract class Box implements BoxInterface, VertexInterface
     public boolean isSolid()
     {
         return this.solidBoxes.contains(this.getLabel());
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Box{x=" + x + ", y=" + y + '}';
     }
 }

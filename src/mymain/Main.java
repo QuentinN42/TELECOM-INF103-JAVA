@@ -1,7 +1,8 @@
 package mymain;
 
-import IO.File;
 import error.MazeError;
+import implement.maze.Box;
+import implement.maze.Maze;
 
 public class Main
 {
@@ -9,10 +10,10 @@ public class Main
     {
         try
         {
-            String[][] content = File.readChars("data/1");
-            for (String[] e: content)
+            Maze maze = new Maze("data/maze");
+            for (Box box : maze.path("D", "A"))
             {
-                System.out.println(String.join("-", e));
+                System.out.println(box);
             }
         }
         catch (MazeError e)
