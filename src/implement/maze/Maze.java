@@ -5,7 +5,6 @@ import error.MazeError;
 import implement.dijkstra.Dijkstra;
 import interfaces.graph.GraphInterface;
 import interfaces.graph.VertexInterface;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -126,7 +125,7 @@ public class Maze implements GraphInterface
      * @return Iterator
      */
     @Override
-    public @NotNull Iterator<VertexInterface> iterator()
+    public Iterator<VertexInterface> iterator()
     {
         return this.boxes.values().stream().map((Box box) -> (VertexInterface) box).iterator();
     }
