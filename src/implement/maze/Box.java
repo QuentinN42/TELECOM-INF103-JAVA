@@ -44,7 +44,7 @@ public abstract class Box implements BoxInterface, VertexInterface
      */
     public double distanceTo(int x, int y)
     {
-        return Math.sqrt((x - this.getX())^2 + (y - this.getY())^2);
+        return Math.sqrt(Math.pow(x - (double) this.getX(), 2) + Math.pow(y - (double) this.getY(),2));
     }
 
     /**

@@ -13,7 +13,7 @@ public class Main
     {
         try
         {
-            Maze maze = new Maze("data/maze");
+            Maze maze = new Maze("data/maze2");
             List<Box> path = maze.path("D", "A");
             Iterable<String> pathStr = path.stream().map(Box::toString).collect(Collectors.toList());
 
