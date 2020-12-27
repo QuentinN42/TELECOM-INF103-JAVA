@@ -1,6 +1,6 @@
 package implement.maze;
 
-import error.MazeError;
+import error.MazeException;
 import interfaces.graph.VertexInterface;
 import interfaces.maze.BoxInterface;
 
@@ -25,7 +25,7 @@ public abstract class Box implements BoxInterface, VertexInterface
         this.y = y;
     }
 
-    public static Box newBox(int i, int j, String type) throws MazeError
+    public static Box newBox(int i, int j, String type) throws MazeException
     {
         return switch (type)
                 {
@@ -33,7 +33,7 @@ public abstract class Box implements BoxInterface, VertexInterface
                     case "D" -> new DBox(i, j);
                     case "E" -> new EBox(i, j);
                     case "W" -> new WBox(i, j);
-                    default -> throw new MazeError("Type " + type + " not recognized.");
+                    default -> throw new MazeException("Type " + type + " not recognized.");
                 };
     }
 

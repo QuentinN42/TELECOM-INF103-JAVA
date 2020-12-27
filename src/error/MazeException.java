@@ -2,7 +2,7 @@ package error;
 
 import java.io.IOError;
 
-public class MazeError extends Exception
+public class MazeException extends Exception
 {
     /**
      * Constructs a new instance of IOError with the specified cause. The
@@ -13,12 +13,12 @@ public class MazeError extends Exception
      * @param cause The cause of this error, or {@code null} if the cause
      *              is not known
      */
-    public MazeError(Throwable cause)
+    public MazeException(Throwable cause)
     {
         super(cause);
     }
 
-    public MazeError(String cause)
+    public MazeException(String cause)
     {
         super(cause);
     }

@@ -1,7 +1,7 @@
 package implement.maze;
 
 import IO.File;
-import error.MazeError;
+import error.MazeException;
 import implement.dijkstra.Dijkstra;
 import interfaces.graph.GraphInterface;
 import interfaces.graph.VertexInterface;
@@ -25,7 +25,7 @@ public class Maze implements GraphInterface
         boxes = new HashMap<>();
     }
 
-    public Maze(String fileName) throws MazeError
+    public Maze(String fileName) throws MazeException
     {
         this();
         this.initFromTextFile(fileName);
@@ -34,9 +34,9 @@ public class Maze implements GraphInterface
 
     /**
      * @param fileName the maze file path.
-     * @throws MazeError if can't init maze.
+     * @throws MazeException if can't init maze.
      */
-    public final void initFromTextFile(String fileName) throws MazeError
+    public final void initFromTextFile(String fileName) throws MazeException
     {
         String[][] data = IO.File.readChars(fileName);
         this.height = data.length;
@@ -44,7 +44,7 @@ public class Maze implements GraphInterface
         for (int i = 0; i < this.height; i++)
         {
             if(data[i].length != this.width)
-                throw new MazeError("Invalid lines length in '" + fileName + "' !");
+                throw new MazeException("Invalid lines length in '" + fileName + "' !");
             for (int j = 0; j < this.width; j++)
             {
                 boxes.put(new int[]{j, i}, Box.newBox(j, i, data[i][j]));
@@ -54,9 +54,9 @@ public class Maze implements GraphInterface
 
     /**
      * @param fileName the maze file path.
-     * @throws MazeError if can't init maze.
+     * @throws MazeException if can't init maze.
      */
-    public final void saveToTextFile(String fileName) throws MazeError
+    public final void saveToTextFile(String fileName) throws MazeException
     {
         String[][] data = new String[this.height][this.width];
         for (int i = 0; i < this.height; i++)

@@ -1,6 +1,6 @@
 package mymain;
 
-import error.MazeError;
+import error.MazeException;
 import implement.maze.Box;
 import implement.maze.Maze;
 
@@ -17,9 +17,9 @@ public class Main
         Maze maze = null;
         try
         {
-            maze = new Maze("data/maze2");
+            maze = new Maze("data/maze3");
         }
-        catch (MazeError e)
+        catch (MazeException e)
         {
             logger.throwing("Main", "main", e);
         }
