@@ -1,5 +1,6 @@
 stages:
   - test
+  - doc
 
 
 test-java:
@@ -9,3 +10,19 @@ test-java:
 
   script:
     - mvn test
+
+
+build-javadoc:
+  stage: doc
+
+  image: maven
+
+  # javadoc path
+  artifacts:
+    name: "Javadoc"
+    paths:
+      - target/site
+
+  script:
+    # Using the javadoc plugin for maven.
+    - mvn javadoc:javadoc
