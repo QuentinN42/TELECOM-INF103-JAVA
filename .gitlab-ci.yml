@@ -2,7 +2,7 @@ stages:
   - test
 
 
-verify:
+test-java:
   stage: test
 
   image: maven
