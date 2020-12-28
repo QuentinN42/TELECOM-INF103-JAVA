@@ -21,8 +21,9 @@ build-javadoc:
   artifacts:
     name: "Javadoc"
     paths:
-      - target/site
+      - doc
 
   script:
     # Using the javadoc plugin for maven.
     - mvn javadoc:javadoc
+    - mv target/site/apidocs doc
