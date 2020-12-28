@@ -5,10 +5,7 @@ stages:
 verify:
   stage: test
 
-  image: java
+  image: maven
 
   script:
-    # ??? https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter/5.7.0/junit-jupiter-5.7.0.jar
-    # ??? https://repo1.maven.org/maven2/junit/junit/4.13.1/junit-4.13.1.jar
-    - javac -d bin -sourcepath src src/mymain/Main.java src/test/*
-    - java -cp .;junit-4.13.1.jar  org.junit.runner.JUnitCore test.
+    - mvn test
