@@ -42,6 +42,16 @@ class MazeTest
     void equals()
     {
         assertEquals(maze1, maze1);
+        assertEquals(maze1, new Maze(
+                new HashMap<>() {{
+                    put(box1.getCoords(), box1);
+                    put(box2.getCoords(), box2);
+                    put(box3.getCoords(), box3);
+                    put(box4.getCoords(), box4);
+                }},
+                2,
+                2
+        ));
     }
 
     @Test
