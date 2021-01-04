@@ -1,8 +1,6 @@
 package com.project.implement.dijkstra;
 
 import com.project.implement.graph.ASet;
-import com.project.implement.graph.Graph;
-import com.project.implement.graph.Vertex;
 import com.project.interfaces.dijkstra.PiInterface;
 import com.project.interfaces.dijkstra.PreviousInterface;
 import com.project.interfaces.graph.ASetInterface;
