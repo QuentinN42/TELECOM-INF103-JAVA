@@ -3,6 +3,7 @@ package com.project;
 import com.project.error.MazeException;
 import com.project.implement.maze.box.Box;
 import com.project.implement.maze.Maze;
+import com.project.io.File;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -62,8 +63,10 @@ class MazeTest
     }
 
     @Test
-    void saveToTextFile()
+    void saveToTextFile() throws MazeException
     {
+        maze1.saveToTextFile("src/test/resources/maze2");
+        assertEquals(File.read("src/test/resources/maze1"), File.read("src/test/resources/maze2"));
     }
 
     @Test
