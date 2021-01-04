@@ -65,8 +65,8 @@ class MazeTest
     @Test
     void saveToTextFile() throws MazeException
     {
-        maze1.saveToTextFile("src/test/resources/maze2");
-        assertEquals(File.read("src/test/resources/maze1"), File.read("src/test/resources/maze2"));
+        maze1.saveToTextFile("src/test/resources/maze1.out");
+        assertEquals(File.read("src/test/resources/maze1"), File.read("src/test/resources/maze1.out"));
     }
 
     @Test
