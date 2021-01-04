@@ -1,5 +1,7 @@
 package com.project.interfaces.maze;
 
+import com.project.implement.maze.Position;
+
 public interface BoxInterface
 {
     /**
@@ -15,5 +17,5 @@ public interface BoxInterface
     /**
      * @return [x, y].
      */
-    int[] getCoords();
+    Position getCoords();
 }

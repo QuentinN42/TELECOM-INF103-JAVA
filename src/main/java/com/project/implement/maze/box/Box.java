@@ -1,6 +1,7 @@
 package com.project.implement.maze.box;
 
 import com.project.error.MazeException;
+import com.project.implement.maze.Position;
 import com.project.interfaces.graph.VertexInterface;
 import com.project.interfaces.maze.BoxInterface;
 
@@ -105,9 +106,9 @@ public abstract class Box implements BoxInterface, VertexInterface
      * @return The x and the y coordinates.
      */
     @Override
-    public int[] getCoords()
+    public Position getCoords()
     {
-        return new int[]{this.getX(), this.getY()};
+        return new Position(this.getX(), this.getY());
     }
 
     public boolean isSolid()
@@ -118,6 +119,6 @@ public abstract class Box implements BoxInterface, VertexInterface
     @Override
     public String toString()
     {
-        return label + "Box{x=" + x + ", y=" + y + '}';
+        return label + "Box(" + x + ", " + y + ')';
     }
 }
