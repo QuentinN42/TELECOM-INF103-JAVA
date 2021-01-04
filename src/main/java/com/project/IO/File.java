@@ -18,25 +18,13 @@ public class File
      */
     public static String read(String fileName) throws MazeException
     {
-        InputStream file = null;
-        try
+        try(InputStream file = new FileInputStream(fileName))
         {
-            file = new FileInputStream(fileName);
             return new String(file.readAllBytes(), StandardCharsets.UTF_8);
         } catch (IOException error)
         {
             error.printStackTrace();
             throw new MazeException("Can't open " + fileName);
-        } finally
-        {
-            try
-            {
-                assert file != null;
-                file.close();
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
         }
     }
 
@@ -81,25 +69,13 @@ public class File
      */
     public static void write(String fileName, String data) throws MazeException
     {
-        OutputStream file = null;
-        try
+        try(OutputStream file = new FileOutputStream(fileName))
         {
-            file = new FileOutputStream(fileName);
             file.write(data.getBytes());
         } catch (IOException error)
         {
             error.printStackTrace();
             throw new MazeException("Can't open " + fileName);
-        } finally
-        {
-            try
-            {
-                assert file != null;
-                file.close();
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
         }
     }
 
