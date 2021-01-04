@@ -6,9 +6,7 @@ import com.project.implement.dijkstra.Dijkstra;
 import com.project.interfaces.graph.GraphInterface;
 import com.project.interfaces.graph.VertexInterface;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -31,6 +29,12 @@ public class Maze implements GraphInterface, AutoCloseable
         this.initFromTextFile(fileName);
     }
 
+    public Maze(Map<int[], Box> boxes, int height, int width)
+    {
+        this.boxes = (HashMap<int[], Box>) boxes;
+        this.height = height;
+        this.width = width;
+    }
 
     /**
      * @param fileName the maze file path.
@@ -79,6 +83,24 @@ public class Maze implements GraphInterface, AutoCloseable
     public boolean contains(VertexInterface element)
     {
         return element instanceof Box && boxes.containsValue(element);
+    }
+
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Maze that = (Maze) o;
+        return height == that.height && width == that.width && Objects.equals(boxes, that.boxes);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(boxes, height, width);
     }
 
     /**
