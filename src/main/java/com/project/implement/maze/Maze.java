@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  */
 public class Maze implements GraphInterface, AutoCloseable
 {
-    private final HashMap<int[], Box> boxes;
+    private final HashMap<Position, Box> boxes;
     private int height;
     private int width;
 
@@ -30,9 +30,9 @@ public class Maze implements GraphInterface, AutoCloseable
         this.initFromTextFile(fileName);
     }
 
-    public Maze(Map<int[], Box> boxes, int height, int width)
+    public Maze(Map<Position, Box> boxes, int height, int width)
     {
-        this.boxes = (HashMap<int[], Box>) boxes;
+        this.boxes = (HashMap<Position, Box>) boxes;
         this.height = height;
         this.width = width;
     }
@@ -52,7 +52,7 @@ public class Maze implements GraphInterface, AutoCloseable
                 throw new MazeException("Invalid lines length in '" + fileName + "' !");
             for (int j = 0; j < this.width; j++)
             {
-                boxes.put(new int[]{j, i}, Box.newBox(j, i, data[i][j]));
+                boxes.put(new Position(j, i), Box.newBox(j, i, data[i][j]));
             }
         }
     }
@@ -68,8 +68,7 @@ public class Maze implements GraphInterface, AutoCloseable
         {
             for (int j = 0; j < this.width; j++)
             {
-                int[] pos = new int[]{j, i};
-                Box box = boxes.get(pos);
+                Box box = boxes.get(new Position(j, i));
                 data[i][j] = box.getLabel();
             }
         }
@@ -162,7 +161,7 @@ public class Maze implements GraphInterface, AutoCloseable
      * @param pos pos in the maze.
      * @return Box at this pos.
      */
-    public final Box get(int[] pos)
+    public final Box get(Position pos)
     {
         return this.boxes.get(pos);
     }
@@ -175,7 +174,8 @@ public class Maze implements GraphInterface, AutoCloseable
     public final Box get(int xPos, int yPos)
     {
         // Warning inverting x and y : x for <-> and y for v^
-        return this.get(new int[]{yPos, xPos});
+        //noinspection SuspiciousNameCombination
+        return this.get(new Position(yPos, xPos));
     }
 
     /**
