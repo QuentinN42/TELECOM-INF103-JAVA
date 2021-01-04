@@ -94,13 +94,18 @@ public class Maze implements GraphInterface, AutoCloseable
         if (o == null || getClass() != o.getClass())
             return false;
         Maze that = (Maze) o;
-        return height == that.height && width == that.width && Objects.equals(boxes, that.boxes);
+        return height == that.height && width == that.width && Objects.equals(new HashSet<>(boxes.values()), new HashSet<>(that.boxes.values()));
     }
 
     @Override
     public int hashCode()
     {
         return Objects.hash(boxes, height, width);
+    }
+
+    public String toString()
+    {
+        return "Maze(" + boxes.toString() + ")";
     }
 
     /**
