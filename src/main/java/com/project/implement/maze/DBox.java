@@ -6,7 +6,7 @@ public class DBox extends Box
      * @param x The x coordinate.
      * @param y The y coordinate.
      */
-    DBox(int x, int y)
+    public DBox(int x, int y)
     {
         super(x, y);
         super.setLabel("D");
