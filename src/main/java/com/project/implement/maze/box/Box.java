@@ -1,4 +1,4 @@
-package com.project.implement.maze;
+package com.project.implement.maze.box;
 
 import com.project.error.MazeException;
 import com.project.interfaces.graph.VertexInterface;

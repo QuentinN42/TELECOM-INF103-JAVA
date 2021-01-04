@@ -1,4 +1,4 @@
-package com.project.implement.maze;
+package com.project.implement.maze.box;
 
 public class WBox extends Box
 {

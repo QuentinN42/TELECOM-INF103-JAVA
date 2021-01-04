@@ -1,5 +1,6 @@
 package com.project.implement.maze;
 
+import com.project.implement.maze.box.Box;
 import com.project.io.File;
 import com.project.error.MazeException;
 import com.project.implement.dijkstra.Dijkstra;

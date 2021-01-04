@@ -1,7 +1,7 @@
 package com.project;
 
 import com.project.error.MazeException;
-import com.project.implement.maze.Box;
+import com.project.implement.maze.box.Box;
 import com.project.implement.maze.Maze;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
