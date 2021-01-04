@@ -1,6 +1,6 @@
 package com.project.implement.maze;
 
-import com.project.IO.File;
+import com.project.io.File;
 import com.project.error.MazeException;
 import com.project.implement.dijkstra.Dijkstra;
 import com.project.interfaces.graph.GraphInterface;

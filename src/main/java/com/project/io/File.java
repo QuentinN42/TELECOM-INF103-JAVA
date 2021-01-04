@@ -1,4 +1,4 @@
-package com.project.IO;
+package com.project.io;
 
 import com.project.error.MazeException;
 
