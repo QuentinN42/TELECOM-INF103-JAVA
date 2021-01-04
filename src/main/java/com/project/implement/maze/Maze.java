@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 /**
  * GraphInterface implementation from text file with a maze.
  */
-public class Maze implements GraphInterface
+public class Maze implements GraphInterface, AutoCloseable
 {
     private final HashMap<int[], Box> boxes;
     private int height;
@@ -182,5 +182,11 @@ public class Maze implements GraphInterface
     public List<Box> path(String fromLabel, String toLabel)
     {
         return this.path(this.getByLabel(fromLabel), this.getByLabel(toLabel));
+    }
+
+    @Override
+    public void close()
+    {
+        // Do nothing to close the Maze
     }
 }

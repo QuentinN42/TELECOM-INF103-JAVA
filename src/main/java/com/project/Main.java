@@ -14,20 +14,16 @@ public class Main
 
     public static void main(String[] args)
     {
-        Maze maze = null;
-        try
+        try(Maze maze = new Maze("data/maze3"))
         {
-            maze = new Maze("data/maze3");
+            List<Box> path = maze.path("D", "A");
+            Iterable<String> pathStr = path.stream().map(Box::toString).collect(Collectors.toList());
+
+            logger.info(() -> String.join(" -> ", pathStr));
         }
         catch (MazeException e)
         {
             logger.throwing("Main", "main", e);
         }
-        assert maze != null;
-
-        List<Box> path = maze.path("D", "A");
-        Iterable<String> pathStr = path.stream().map(Box::toString).collect(Collectors.toList());
-
-        logger.info(() -> String.join(" -> ", pathStr));
     }
 }
