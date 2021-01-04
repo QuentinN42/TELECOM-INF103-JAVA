@@ -7,6 +7,11 @@ import java.nio.charset.StandardCharsets;
 
 public class File
 {
+    File()
+    {
+        throw new IllegalStateException("Utility class");
+    }
+
     /**
      * @param fileName the file path
      * @return content of the file
