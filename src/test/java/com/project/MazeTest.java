@@ -1,15 +1,14 @@
 package com.project;
 
 import com.project.error.MazeException;
-import com.project.implement.maze.*;
+import com.project.implement.maze.Box;
+import com.project.implement.maze.Maze;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MazeTest
 {
