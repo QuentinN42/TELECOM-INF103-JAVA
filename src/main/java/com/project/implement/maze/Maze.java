@@ -182,7 +182,7 @@ public class Maze implements GraphInterface, AutoCloseable
      * @param label label of a box in the maze.
      * @return first Box with this label.
      */
-    public final Box getByLabel(String label)
+    public final Box get(String label)
     {
         for (Box box: this.boxes.values())
         {
@@ -199,17 +199,17 @@ public class Maze implements GraphInterface, AutoCloseable
 
     public List<Box> path(String fromLabel, Box to)
     {
-        return this.path(this.getByLabel(fromLabel), to);
+        return this.path(this.get(fromLabel), to);
     }
 
     public List<Box> path(Box from, String toLabel)
     {
-        return this.path(from, this.getByLabel(toLabel));
+        return this.path(from, this.get(toLabel));
     }
 
     public List<Box> path(String fromLabel, String toLabel)
     {
-        return this.path(this.getByLabel(fromLabel), this.getByLabel(toLabel));
+        return this.path(this.get(fromLabel), this.get(toLabel));
     }
 
     @Override

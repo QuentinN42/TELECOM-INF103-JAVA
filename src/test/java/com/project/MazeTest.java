@@ -9,7 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -126,18 +125,9 @@ class MazeTest
         for (Box box: boxes)
         {
             assertEquals(box, maze1.get(box.getCoords()));
+            assertEquals(box, maze1.get(box.getLabel()));
             assertEquals(box, maze1.get(box.getY(), box.getX()));
         }
-    }
-
-    @Test
-    void getByLabel()
-    {
-        for (Box box: boxes)
-        {
-            assertEquals(box, maze1.getByLabel(box.getLabel()));
-        }
-
     }
 
     @Test
