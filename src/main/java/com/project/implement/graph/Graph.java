@@ -21,10 +21,18 @@ public class Graph implements GraphInterface
      */
     public Graph(List<VertexInterface> vertexes, int[][] weights)
     {
-        // TODO(Quentin Lieumont): Add tests
-        //  Verify list size == w len == w height
+        this.checkSize(vertexes.size(), weights);
         this.vertexes = (ArrayList<VertexInterface>) vertexes;
         this.weights = weights;
+    }
+
+    private void checkSize(int size, int[][] w)
+    {
+        assert size == w.length;
+        for (int i = 0; i < size; i++)
+        {
+            assert size == w[i].length;
+        }
     }
 
     public Graph()
