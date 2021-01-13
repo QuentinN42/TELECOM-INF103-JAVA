@@ -121,7 +121,7 @@ public class Maze implements GraphInterface, AutoCloseable
             Box f = (Box) father;
             Box c = (Box) child;
 
-            if (!(f.isSolid()) &&(!c.isSolid()))
+            if (!(f.isSolid()) && (!c.isSolid()))
                 return f.distanceTo(c) == 1;
         }
         return false;
