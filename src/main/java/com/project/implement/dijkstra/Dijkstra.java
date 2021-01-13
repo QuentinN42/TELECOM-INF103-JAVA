@@ -14,8 +14,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
-import static java.lang.String.format;
-
 public class Dijkstra
 {
     private static final Logger logger = Logger.getLogger("com.project.implement.dijkstra.Dijkstra");
