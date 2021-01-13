@@ -11,6 +11,10 @@ test-java:
   script:
     - mvn test
 
+  artifacts:
+    paths:
+      - target/surefire-reports/*.xml
+
 
 build-javadoc:
   stage: doc
