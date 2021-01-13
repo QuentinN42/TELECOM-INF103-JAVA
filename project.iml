@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Python" name="Python">
+      <configuration sdkName="Python 3.9" />
+    </facet>
+  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_14">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
@@ -44,5 +49,6 @@
     <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-engine:1.0.0" level="project" />
+    <orderEntry type="library" name="Python 3.9 interpreter library" level="application" />
   </component>
 </module>
