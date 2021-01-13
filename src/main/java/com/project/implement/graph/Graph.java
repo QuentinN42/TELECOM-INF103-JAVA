@@ -101,6 +101,6 @@ public class Graph implements GraphInterface
     @Override
     public Iterator<VertexInterface> successors(VertexInterface vertex)
     {
-        return Arrays.asList(new Vertex(1)).stream().map(VertexInterface.class::cast).iterator(); // TODO
+        return this.iterator(); // TODO
     }
 }
