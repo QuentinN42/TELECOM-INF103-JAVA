@@ -4,6 +4,7 @@ import com.project.interfaces.graph.GraphInterface;
 import com.project.interfaces.graph.VertexInterface;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -95,5 +96,11 @@ public class Graph implements GraphInterface
     public Iterator<VertexInterface> iterator()
     {
         return this.vertexes.iterator();
+    }
+
+    @Override
+    public Iterator<VertexInterface> successors(VertexInterface vertex)
+    {
+        return Arrays.asList(new Vertex(1)).stream().map(VertexInterface.class::cast).iterator(); // TODO
     }
 }

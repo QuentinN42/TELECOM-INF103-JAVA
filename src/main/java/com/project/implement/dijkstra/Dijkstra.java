@@ -7,12 +7,18 @@ import com.project.interfaces.graph.ASetInterface;
 import com.project.interfaces.graph.GraphInterface;
 import com.project.interfaces.graph.VertexInterface;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
+
+import static java.lang.String.format;
 
 public class Dijkstra
 {
+    private static final Logger logger = Logger.getLogger("com.project.implement.dijkstra.Dijkstra");
     /**
      * @param g any graph
      * @param from the starting node on the graph
@@ -45,6 +51,7 @@ public class Dijkstra
      */
     private PreviousInterface dijkstra(GraphInterface g, VertexInterface r, ASetInterface a, PiInterface pi, PreviousInterface previous)
     {
+        logger.info("Starting");
         a.add(r);
         VertexInterface pivot = r;
         for (VertexInterface x: g)
@@ -55,8 +62,11 @@ public class Dijkstra
 
         for (int i = 0; i < g.size() - 1; i++)
         {
-            for (VertexInterface y : g)
+            int finalI = i;
+            logger.info(() -> MessageFormat.format("Steep : {0}/{1}", finalI, g.size()));
+            for (Iterator<VertexInterface> it = g.successors(pivot); it.hasNext(); )
             {
+                VertexInterface y = it.next();
                 if (!a.contains(y) && g.isSuccessor(pivot, y) && pi.getValueOf(pivot) + g.weight(pivot, y) < pi.getValueOf(y))
                 {
                     pi.setValueOf(y, pi.getValueOf(pivot) + g.weight(pivot, y));
@@ -75,6 +85,7 @@ public class Dijkstra
             pivot = m;
             a.add(m);
         }
+        logger.info("Done");
         return previous;
     }
 }

@@ -37,4 +37,10 @@ public interface GraphInterface extends Iterable<VertexInterface>
      * @return Iterator
      */
     Iterator<VertexInterface> iterator();
+
+    /**
+     * Iterate over successors of vertex
+     * @return Iterator
+     */
+    Iterator<VertexInterface> successors(VertexInterface vertex);
 }

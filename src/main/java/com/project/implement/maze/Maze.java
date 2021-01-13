@@ -157,6 +157,20 @@ public class Maze implements GraphInterface, AutoCloseable
         return this.boxes.values().stream().map(VertexInterface.class::cast).iterator();
     }
 
+    @Override
+    public Iterator<VertexInterface> successors(VertexInterface vertex)
+    {
+        if(vertex instanceof Box)
+        {
+            Position pos = ((Box) vertex).getCoords();
+            return pos.neighbours().stream().map(this::get).filter(box -> this.isSuccessor(box, vertex)).map(VertexInterface.class::cast).iterator();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     /**
      * @param pos pos in the maze.
      * @return Box at this pos.

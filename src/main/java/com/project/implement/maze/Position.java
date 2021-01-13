@@ -1,5 +1,7 @@
 package com.project.implement.maze;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Position
@@ -34,5 +36,19 @@ public class Position
     public String toString()
     {
         return "P(" + x + ", " + y + ')';
+    }
+
+    /**
+     * Get neighbourhood of this.
+     * @return all neighbours
+     */
+    public List<Position> neighbours()
+    {
+        return Arrays.asList(
+                new Position(this.x + 1, this.y),
+                new Position(this.x - 1, this.y),
+                new Position(this.x, this.y + 1),
+                new Position(this.x, this.y - 1)
+        );
     }
 }
