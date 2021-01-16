@@ -4,6 +4,11 @@ import com.project.error.MazeException;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class File
 {
@@ -44,21 +49,10 @@ public class File
     public static String[][] readChars(String fileName) throws MazeException
     {
         String[] txts = readLines(fileName);
-        int ma = -1;
-        for(String txt: txts)
-        {
-            int v = txt.split("").length;
-            if (v > ma)
-            {
-                ma = v;
-            }
-        }
-        String[][] out = new String[txts.length][ma];
+        int ma = Collections.max(Arrays.stream(txts).map(txt -> txt.split("").length).collect(Collectors.toList()));
 
-        for (int i = 0; i < txts.length; i++)
-        {
-            out[i] = txts[i].split("");
-        }
+        String[][] out = new String[txts.length][ma];
+        Arrays.stream(txts).map(txt -> txt.split("")).collect(Collectors.toList()).toArray(out);
 
         return out;
     }
