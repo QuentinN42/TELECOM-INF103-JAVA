@@ -14,12 +14,13 @@ public class Main
 
     public static void main(String[] args)
     {
-        try(Maze maze = new Maze("data/WAN2"))
+        try(Maze maze = new Maze("data/maze4"))
         {
             List<Box> path = maze.path("D", "A");
             Iterable<String> pathStr = path.stream().map(Box::toString).collect(Collectors.toList());
 
             logger.info(() -> String.join(" -> ", pathStr));
+            maze.printSolution();
         }
         catch (MazeException e)
         {

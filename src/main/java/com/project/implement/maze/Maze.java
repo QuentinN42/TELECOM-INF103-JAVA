@@ -75,6 +75,37 @@ public class Maze implements GraphInterface, AutoCloseable
         File.writeChars(fileName, data);
     }
 
+    public final void printSolution()
+    {
+        List<Box> path = this.path("D", "A");
+        StringBuilder out = new StringBuilder();
+        for (int i = 0; i < this.height; i++)
+        {
+            for (int j = 0; j < this.width; j++)
+            {
+                Box box = boxes.get(new Position(j, i));
+                if(Arrays.asList("D", "A").contains(box.getLabel()))
+                {
+                    out.append(box.getLabel());
+                }
+                else if(path.contains(box))
+                {
+                    out.append(Arrays.asList(
+                        ">","<","v","^"
+                    ).get(box.getCoords().neighbours().indexOf(
+                            path.get(1 + path.indexOf(box)).getCoords()))
+                    );
+                }
+                else
+                {
+                    out.append(box.getLabel());
+                }
+            }
+            out.append('\n');
+        }
+        System.out.println(out.toString());
+    }
+
     /**
      * @param element the element to test
      * @return if the element is in the maze
