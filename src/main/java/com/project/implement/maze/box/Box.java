@@ -5,11 +5,12 @@ import com.project.implement.maze.Position;
 import com.project.interfaces.graph.VertexInterface;
 import com.project.interfaces.maze.BoxInterface;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
 
-public abstract class Box implements BoxInterface, VertexInterface
+public abstract class Box implements BoxInterface, VertexInterface, Serializable
 {
     private final int x;
     private final int y;

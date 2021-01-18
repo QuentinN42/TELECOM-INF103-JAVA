@@ -7,14 +7,18 @@ import com.project.implement.dijkstra.Dijkstra;
 import com.project.interfaces.graph.GraphInterface;
 import com.project.interfaces.graph.VertexInterface;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
 /**
  * GraphInterface implementation from text file with a maze.
  */
-public class Maze implements GraphInterface, AutoCloseable
+public class Maze implements GraphInterface, AutoCloseable, Serializable
 {
+    @Serial
+    private static final long serialVersionUID = 1905122041950251207L;
     private final HashMap<Position, Box> boxes;
     private int height;
     private int width;

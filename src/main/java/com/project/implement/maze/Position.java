@@ -1,10 +1,11 @@
 package com.project.implement.maze;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class Position
+public class Position implements Serializable
 {
     int x;
     int y;
